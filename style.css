@@ -1,0 +1,13 @@
+/* Basic styling for the game interface */
+body { font-family: Arial, sans-serif; text-align: center; }
+.decks { display: flex; justify-content: center; }
+.deck { 
+    display: inline-block; 
+    width: 150px; 
+    height: 200px; 
+    margin: 10px; 
+    border: 2px solid black; 
+    cursor: pointer; 
+    background-color: lightblue;
+}
+.score { font-size: 24px; margin: 20px; }
