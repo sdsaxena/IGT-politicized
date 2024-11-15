@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iowa Gambling Task</title>
-
-    <!-- Linking to the CSS file -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <h1>Iowa Gambling Task</h1>
-    <div class="score">Government Budget: <span id="budget">2000</span> $</div>
-    <div class="decks">
-        <div class="deck" id="deck1">Deck 1</div>
-        <div class="deck" id="deck2">Deck 2</div>
-        <div class="deck" id="deck3">Deck 3</div>
-        <div class="deck" id="deck4">Deck 4</div>
+    <!-- Instructions Section -->
+    <div id="instructions">
+        <h2>Welcome to the Iowa Gambling Task</h2>
+        <p>
+            Your goal is to maximize the government budget while balancing economic growth, labor capacity, crime, and pollution.
+            Each deck represents a policy decision. Choose wisely, as each decision has consequences.
+        </p>
+        <ul>
+            <li>Deck 1: Increases economic growth but increases pollution.</li>
+            <li>Deck 2: Increases labor capacity but increases crime.</li>
+            <li>Deck 3: Decreases pollution but reduces economic growth.</li>
+            <li>Deck 4: Decreases crime but reduces labor capacity.</li>
+        </ul>
+        <p>You start with $2000. Good luck!</p>
+        <button id="startButton">Start Game</button>
     </div>
-    <div id="message"></div>
-    <button onclick="downloadCSV()">Download Data</button>
 
-    <!-- Linking to the JavaScript file -->
+    <!-- Game Section -->
+    <div id="gameContainer" style="display: none;">
+        <h1>Iowa Gambling Task</h1>
+        <div class="score">Government Budget: <span id="budget">2000</span> $</div>
+        <div class="decks">
+            <div class="deck" id="deck1">Deck 1</div>
+            <div class="deck" id="deck2">Deck 2</div>
+            <div class="deck" id="deck3">Deck 3</div>
+            <div class="deck" id="deck4">Deck 4</div>
+        </div>
+        <div id="message"></div>
+        <button onclick="downloadCSV()">Download Data</button>
+    </div>
+
     <script src="script.js"></script>
-
 </body>
 </html>
