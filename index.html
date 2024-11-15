@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game</title>
-    <style>
-        /* Basic styling for the game layout */
-        #gameContainer {
-            display: none;
-        }
-        #instructions {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS (optional) -->
 </head>
 <body>
     <!-- Instructions section -->
     <div id="instructions">
         <h1>Welcome to the Game!</h1>
         <p>In this game, you'll make decisions that affect various factors such as economic growth, crime rates, and pollution levels. Your goal is to balance these factors while managing a budget.</p>
+        <p>Instructions: In this task, you play a "gambling" game. You need to choose one of the 4 buttons (A, B, C, or D) with you mouse.
+Each time, you have the opportunity to win some money, but you may also sometimes have to pay a fee to the government. After each trial, you need to collect your money, which will adjust your total funds.
+You start with a loan of $2000.
+There are 100 trials (~5 minutes in total).
+Go on until the game stops and see how much you can make on top of the loan of $2000.
+Press the space bar to start. Good luck! </p>
         <button id="startButton">Start Game</button>
         <p id="message"></p> <!-- For screen reader announcements -->
     </div>
 
     <!-- Game container (initially hidden) -->
-    <div id="gameContainer">
+    <div id="gameContainer" style="display: none;">
         <h1>Game in Progress</h1>
         <p>Current Budget: $<span id="budget">2000</span></p>
         <p id="message"></p>
@@ -37,6 +35,6 @@
         <button onclick="downloadCSV()">Download Game Log</button>
     </div>
 
-    <script src="game.js"></script>
+    <script src="game.js"></script> <!-- External JavaScript file -->
 </body>
 </html>
