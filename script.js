@@ -73,3 +73,9 @@ document.getElementById("deck1").onclick = () => pickCard("Deck 1");
 document.getElementById("deck2").onclick = () => pickCard("Deck 2");
 document.getElementById("deck3").onclick = () => pickCard("Deck 3");
 document.getElementById("deck4").onclick = () => pickCard("Deck 4");
+
+// Show instructions when needed
+function showInstructions() {
+    document.getElementById("instructions").style.display = "block";
+    document.getElementById("gameContainer").style.display = "none";
+}
