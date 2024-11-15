@@ -79,15 +79,3 @@ document.getElementById("deck1").addEventListener("click", () => pickCard("Deck 
 document.getElementById("deck2").addEventListener("click", () => pickCard("Deck 2"));
 document.getElementById("deck3").addEventListener("click", () => pickCard("Deck 3"));
 document.getElementById("deck4").addEventListener("click", () => pickCard("Deck 4"));
-
-// Function to show the instructions again
-function showInstructions() {
-    // Hide the game container
-    document.getElementById("gameContainer").style.display = "none";
-
-    // Show the instructions section
-    document.getElementById("instructions").style.display = "block";
-
-    // Announce for screen readers that instructions are visible
-    document.getElementById("message").textContent = "Instructions are displayed. You can now start the game.";
-}
