@@ -8,35 +8,40 @@
 </head>
 <body>
     <!-- Instructions Section -->
-    <div id="instructions">
-        <h2>Welcome to the Iowa Gambling Task</h2>
+    <section id="instructions" aria-labelledby="instructions-title">
+        <h1 id="instructions-title">Welcome to the Iowa Gambling Task</h1>
         <p>
             Your goal is to maximize the government budget while balancing economic growth, labor capacity, crime, and pollution.
             Each deck represents a policy decision. Choose wisely, as each decision has consequences.
         </p>
         <ul>
-            <li>Deck 1: Increases economic growth but increases pollution.</li>
-            <li>Deck 2: Increases labor capacity but increases crime.</li>
-            <li>Deck 3: Decreases pollution but reduces economic growth.</li>
-            <li>Deck 4: Decreases crime but reduces labor capacity.</li>
+            <li><strong>Deck 1:</strong> Increases economic growth but increases pollution.</li>
+            <li><strong>Deck 2:</strong> Increases labor capacity but increases crime.</li>
+            <li><strong>Deck 3:</strong> Decreases pollution but reduces economic growth.</li>
+            <li><strong>Deck 4:</strong> Decreases crime but reduces labor capacity.</li>
         </ul>
         <p>You start with $2000. Good luck!</p>
-        <button id="startButton">Start Game</button>
-    </div>
+        <button id="startButton" aria-label="Start the game">Start Game</button>
+    </section>
 
     <!-- Game Section -->
-    <div id="gameContainer" style="display: none;">
-        <h1>Iowa Gambling Task</h1>
-        <div class="score">Government Budget: <span id="budget">2000</span> $</div>
-        <div class="decks">
-            <div class="deck" id="deck1">Deck 1</div>
-            <div class="deck" id="deck2">Deck 2</div>
-            <div class="deck" id="deck3">Deck 3</div>
-            <div class="deck" id="deck4">Deck 4</div>
+    <section id="gameContainer" style="display: none;" aria-labelledby="game-title">
+        <h1 id="game-title">Iowa Gambling Task</h1>
+        <div class="score">
+            Government Budget: <span id="budget" aria-live="polite">2000</span> $
         </div>
-        <div id="message"></div>
-        <button onclick="downloadCSV()">Download Data</button>
-    </div>
+        <div class="decks">
+            <button class="deck" id="deck1" aria-label="Deck 1">Deck 1</button>
+            <button class="deck" id="deck2" aria-label="Deck 2">Deck 2</button>
+            <button class="deck" id="deck3" aria-label="Deck 3">Deck 3</button>
+            <button class="deck" id="deck4" aria-label="Deck 4">Deck 4</button>
+        </div>
+        <p id="message" aria-live="polite"></p>
+        <div class="game-actions">
+            <button onclick="downloadCSV()" aria-label="Download game data as CSV">Download Data</button>
+            <button onclick="showInstructions()" aria-label="Return to instructions">Show Instructions</button>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
