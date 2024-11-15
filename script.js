@@ -1,3 +1,12 @@
+// Show game container when "Start Game" is clicked
+document.getElementById("startButton").addEventListener("click", function () {
+    // Hide the instructions section
+    document.getElementById("instructions").style.display = "none";
+
+    // Show the game container
+    document.getElementById("gameContainer").style.display = "block";
+});
+
 // Initialize budget and an array to capture data
 let budget = 2000;  // starting budget
 let dataLog = [];   // array to capture data for each click
