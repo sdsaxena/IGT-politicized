@@ -5,12 +5,16 @@ document.getElementById("startButton").addEventListener("click", function () {
 
     // Show the game container
     document.getElementById("gameContainer").style.display = "block";
+
+    // Announce the start of the game for screen readers
+    document.getElementById("message").textContent = "Game started! Make your first decision.";
 });
 
 // Initialize budget and an array to capture data
 let budget = 2000;  // starting budget
-let dataLog = [];   // array to capture data for each click
+let dataLog = [];   // array to capture data for each decision
 
+// Function to handle deck selection
 function pickCard(deckId) {
     let change, message;
 
@@ -36,46 +40,54 @@ function pickCard(deckId) {
             ? "You decreased crime, but labor capacity has been affected."
             : "Labor capacity has increased, but crime levels have also risen.";
     }
-  
-   // Update budget and display
+
+    // Update the budget
     budget += change;
+
+    // Update the displayed budget and message
     document.getElementById("budget").textContent = budget;
-    document.getElementById("message").textContent = 
+    document.getElementById("message").textContent =
         `You picked ${deckId} and ${change >= 0 ? "gained" : "lost"} $${Math.abs(change)}. ${message}`;
 
-    // Log data
+    // Log the decision data
     dataLog.push({ deck: deckId, change: change, message: message, total: budget });
-
 }
 
+// Function to download game log as CSV
 function downloadCSV() {
     let csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "Deck,Change,Message,Total Budget\n";  // Header row
 
-    // Loop through dataLog and format each entry as a CSV row
+    // Append each log entry as a CSV row
     dataLog.forEach(row => {
         let rowContent = `${row.deck},${row.change},"${row.message}",${row.total}`;
         csvContent += rowContent + "\n";
     });
 
-    // Create a downloadable link and click it programmatically
+    // Create a downloadable link and trigger the download
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "game_log.csv");
-    document.body.appendChild(link);  // Required for Firefox
+    document.body.appendChild(link);  // Append link temporarily
     link.click();
-    document.body.removeChild(link);  // Cleanup
+    document.body.removeChild(link);  // Clean up
 }
 
-// Attach click events to decks
-document.getElementById("deck1").onclick = () => pickCard("Deck 1");
-document.getElementById("deck2").onclick = () => pickCard("Deck 2");
-document.getElementById("deck3").onclick = () => pickCard("Deck 3");
-document.getElementById("deck4").onclick = () => pickCard("Deck 4");
+// Attach click events to deck buttons
+document.getElementById("deck1").addEventListener("click", () => pickCard("Deck 1"));
+document.getElementById("deck2").addEventListener("click", () => pickCard("Deck 2"));
+document.getElementById("deck3").addEventListener("click", () => pickCard("Deck 3"));
+document.getElementById("deck4").addEventListener("click", () => pickCard("Deck 4"));
 
-// Show instructions when needed
+// Function to show the instructions again
 function showInstructions() {
-    document.getElementById("instructions").style.display = "block";
+    // Hide the game container
     document.getElementById("gameContainer").style.display = "none";
+
+    // Show the instructions section
+    document.getElementById("instructions").style.display = "block";
+
+    // Announce for screen readers that instructions are visible
+    document.getElementById("message").textContent = "Instructions are displayed.";
 }
