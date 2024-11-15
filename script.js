@@ -89,5 +89,5 @@ function showInstructions() {
     document.getElementById("instructions").style.display = "block";
 
     // Announce for screen readers that instructions are visible
-    document.getElementById("message").textContent = "Instructions are displayed.";
+    document.getElementById("message").textContent = "Instructions are displayed. You can now start the game.";
 }
